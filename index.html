@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="todo-card">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Productivity</p>
+            <h1>Todo App</h1>
+          </div>
+          <span id="task-count" class="pill">0 tasks</span>
+        </header>
+
+        <form id="todo-form" class="todo-form" autocomplete="off">
+          <input
+            id="todo-input"
+            type="text"
+            placeholder="Add a new task..."
+            aria-label="Add a new task"
+            maxlength="120"
+          />
+          <button type="submit" class="primary-btn">Add</button>
+        </form>
+
+        <div class="toolbar" aria-label="Todo filters">
+          <div class="filter-group" role="group" aria-label="Filter tasks">
+            <button class="filter-btn active" data-filter="all" type="button">
+              All
+            </button>
+            <button class="filter-btn" data-filter="active" type="button">
+              Active
+            </button>
+            <button class="filter-btn" data-filter="completed" type="button">
+              Completed
+            </button>
+          </div>
+          <button id="clear-completed" class="text-btn" type="button">
+            Clear completed
+          </button>
+        </div>
+
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+        <div id="empty-state" class="empty-state hidden">
+          <p>No tasks yet.</p>
+          <span>Add your first task above to get started.</span>
+        </div>
+      </section>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label class="todo-check">
+          <input type="checkbox" />
+          <span class="checkmark" aria-hidden="true"></span>
+        </label>
+        <span class="todo-text"></span>
+        <button type="button" class="delete-btn" aria-label="Delete task">
+          Delete
+        </button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
